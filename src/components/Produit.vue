@@ -20,32 +20,32 @@ defineProps(["listeProduits"]);
 
 <style>
 .container {
-  margin: 0; /* Remove default margin */
-  max-width: 800px; /* Set a maximum width for the container */
+  margin: 0; 
+  max-width: 800px;
 }
 
 .produits-list {
-  list-style-type: none; /* Remove default list bullet */
-  padding: 0; /* Remove default padding */
+  list-style-type: none;
+  padding: 0;
 }
 
 .produit-item {
-  display: flex; /* Use flexbox for layout */
+  display: flex; 
 }
 
 .produit-info {
-  flex: 1; /* Take remaining space */
-  display: flex; /* Use flexbox for layout */
-  align-items: center; /* Center vertically */
+  flex: 1; 
+  display: flex;
+  align-items: center; 
 }
 
 .produit-image {
-  margin-left: 10px; /* Add space between text and image */
+  margin-left: 10px;
 }
 
 .produit-image img {
-  max-width: 100px; /* Limit image width */
-  height: auto; /* Maintain aspect ratio */
-  display: block; /* Ensure image is displayed as block element */
+  max-width: 100px;
+  height: auto;
+  display: block; 
 }
 </style>
