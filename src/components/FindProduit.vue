@@ -28,7 +28,7 @@ function FindProduit(nomprod,listeProduits){
 </script>
 
 <template>
-  
+  <div>
     <div class="navbar">
       <form @submit.prevent="FindProduit(nomProduit,listeProduits)">
           <div class="text-navbar"><h1>Frigo</h1></div>
@@ -38,30 +38,45 @@ function FindProduit(nomprod,listeProduits){
             </div>
     </form>
   </div>
-<div>
-          <!-- Afficher les noms des produits dans la balise select -->
-          <div v-if="foundProduit" class="found-produit">
-            <h3>Produit :</h3>
-            <p>ID: {{ Produit[0] }}</p>
-            <p>Nom: {{ Produit[1] }}</p>
-            <p>Quantité: {{ Produit[2] }}</p>
-            <img :src="Produit[3]" alt="Product Image">
-        </div>
+
+  <div>
+    <!-- Afficher les noms des produits dans la balise select -->
+    <div v-if="foundProduit" class="found-produit">
+      <h3>Produit :</h3>
+      Nom: {{ Produit[1] }}        Quantité: {{ Produit[2] }}        <img :src="Produit[3]">
+  </div>
+    <div v-else class="found-produit">
+      Produit n'existe pas
+    </div>
 
   </div>
+</div>
 </template>
 
 <style>
-.found-produit {
-  margin-top: 51px;
+ img {
+  max-width: 70px;
+  height: auto;
+  display: block; 
 }
+
+.found-produit {
+  background-color: #B6D8F2;
+  color:white;
+  margin-top: 70px;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 100px;
+}
+
 body {
   margin: 0;
   padding: 0;
 }
 
 .navbar {
-  background-color: #007bff;
+  background-color: #5784BA;
   height: 70px;
   width: 100%;
   position: fixed;
@@ -69,6 +84,7 @@ body {
   left:0;
   right:0;
   z-index: 1000;
+  padding: 0px;
 }
 
 .text-navbar {

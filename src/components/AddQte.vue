@@ -28,8 +28,10 @@ let myHeaders = new Headers();
 </script>
 
 <template>
-<div>
+<div class="container-addqte">
     <!-- Incrémenter la quantité d'un produit présent -->
+    <h2>Incrémenter la quantité</h2>
+
     <form @submit="AddQte(selectedProductId,url)">
         <div>
           <label for="nomproduit">Nom du produit :</label>
@@ -38,7 +40,61 @@ let myHeaders = new Headers();
             <option v-for="produit in listeProduits" :key="produit[0]" :value="produit">{{ produit[1] }}</option>
           </select>
         </div>
-      <button type="submit">Ajouter du quantité</button>
+      <button type="submit">Incrément la quantité</button>
     </form>
   </div>
 </template>
+
+<style>
+.container-addqte {
+  width: 50%; 
+  margin: 0 auto; 
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.container-addqte h2 {
+  text-align: center;
+}
+
+.container-addqte form {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-addqte label {
+  margin-bottom: 5px;
+  width: 100px; 
+}
+
+.container-addqte select {
+  padding: 8px;
+  margin-bottom: 10px;
+  width: calc(100% - 100px); 
+}
+
+.container-addqte div {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.container-addqte select,
+.container-addqte button {
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.container-addqte button {
+  background-color: #9AC8EB;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container-addqte button:hover {
+  background-color: #0056b3;
+}</style>

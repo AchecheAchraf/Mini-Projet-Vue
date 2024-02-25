@@ -8,7 +8,7 @@ import FindProduit from './components/FindProduit.vue'
 
 import { onMounted,onUpdated,reactive } from "vue";
 const listeProduits = reactive([]);
-const url = "https://webmmi.iut-tlse3.fr/~pecatte/frigo/public/16/produits";
+const url = "https://webmmi.iut-tlse3.fr/~pecatte/frigo/public/2/produits";
 
 function getProduits(){
     fetch(url)
@@ -31,62 +31,51 @@ onUpdated(() => {getProduits()})
 </script>
 
 <template>
-
-  <div>
+<div class="page">
+  <div class="nav">
     <FindProduit :listeProduits="listeProduits"/>
-    <Produit :listeProduits="listeProduits" :url="url"/>
-    <AddProduit :url="url"/>
-    <DeleteProduit :listeProduits="listeProduits" :url="url"/>
-    <AddQte :listeProduits="listeProduits" :url="url"/>
-    <DeleteQte :listeProduits="listeProduits" :url="url"/>
   </div>
+  <div class="container">
+    <div class="left">
+      <Produit :listeProduits="listeProduits" :url="url"/>
+    </div>
+    <div class="right">
+      <AddProduit :url="url"/>
+      <DeleteProduit :listeProduits="listeProduits" :url="url"/>
+      <AddQte :listeProduits="listeProduits" :url="url"/>
+      <DeleteQte :listeProduits="listeProduits" :url="url"/>
+    </div>
+  </div>
+</div>
 </template>
 
 <style>
-/* Reset margin and padding */
-body {
-  margin: 0;
-  padding: 0;
+.page {
+  background-color: #B6D8F2;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; 
 }
 
-.navbar {
-  background-color: #007bff;
-  height: 70px;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left:0;
-  right:0;
-  z-index: 1000;
+.container {
+  margin-top: 40px;
+  flex: 1; 
+  display: flex;
+  color:white;
+  justify-content: center; 
 }
 
-.text-navbar {
-  color: #FFFFFF;
-  float: left;
-  margin-top: -2px;
-  margin-left: 20px;
+.left, .right {
+  flex: 1; 
 }
 
-.search-container {
-  float: right;
-  margin-top: 15px;
-  margin-right: 20px;
+.left {
+  background-color: #B6D8F2;
 }
 
-.search-container input {
-  margin: 5px;
-  padding: 10px;
-  border: none;
-  font-size: 17px;
-}
-
-.search-container button {
-  margin: 5px;
-  padding: 10px 20px;
-  background: #8AAFAE;
-  color: white;
-  border: none;
-  cursor: pointer;
+.right {
+  background-color: #B6D8F2;
+ 
 }
 
 </style>

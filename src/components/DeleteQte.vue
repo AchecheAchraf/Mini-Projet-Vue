@@ -26,7 +26,6 @@ let myHeaders = new Headers();
     .catch((error) => {
         console.log(error);
     });}
-    //Avec cette fonction on n'a pas le droit pour mettre la quantité < ou = à 0 sinon on a besoin de supprimer le produit
   else{
     alert("Impossible de décrimenter la quantité du ce produit")
   }
@@ -35,8 +34,9 @@ let myHeaders = new Headers();
 </script>
 
 <template>
-<div>
+<div class="container-deleteqte">
     <!-- Décrimenter la quantité d'un produit présent -->
+    <h2>Décrimenter la quantité</h2>
     <form @submit="DeleteQte(selectedProductId,url)">
         <div>
           <label for="nomproduit">Nom du produit :</label>
@@ -44,7 +44,61 @@ let myHeaders = new Headers();
             <option v-for="produit in listeProduits" :key="produit[0]" :value="produit">{{ produit[1] }}</option>
           </select>
         </div>
-      <button type="submit">Supprimer du quantité</button>
+      <button type="submit">Décrimenter la quantité</button>
     </form>
   </div>
 </template>
+
+<style>
+.container-deleteqte {
+  width: 50%; 
+  margin: 0 auto; 
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.container-deleteqte h2 {
+  text-align: center;
+}
+
+.container-deleteqte form {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-deleteqte label {
+  margin-bottom: 5px;
+  width: 100px; 
+}
+
+.container-deleteqte select {
+  padding: 8px;
+  margin-bottom: 10px;
+  width: calc(100% - 100px); 
+}
+
+.container-deleteqte div {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.container-deleteqte select,
+.container-deleteqte button {
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.container-deleteqte button {
+  background-color: #9AC8EB;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container-deleteqte button:hover {
+  background-color: #0056b3;
+}</style>
