@@ -1,7 +1,7 @@
 <script setup>
 defineProps(["listeProduits","url"]);
-
-
+import { ref } from 'vue';
+const selectedProductIdDeleteQte = ref(null);
 
 //Fonction pour décrémentation la quantité
 function DeleteQte(produit,url) {
@@ -37,10 +37,10 @@ let myHeaders = new Headers();
 <div class="container-deleteqte">
     <!-- Décrimenter la quantité d'un produit présent -->
     <h2>Décrimenter la quantité</h2>
-    <form @submit="DeleteQte(selectedProductId,url)">
+    <form @submit="DeleteQte(selectedProductIdDeleteQte,url)">
         <div>
           <label for="nomproduit">Nom du produit :</label>
-          <select v-model="selectedProductId" id="nomproduit" class="produit-select">
+          <select v-model="selectedProductIdDeleteQte" id="nomproduit" class="produit-select">
             <option v-for="produit in listeProduits" :key="produit[0]" :value="produit">{{ produit[1] }}</option>
           </select>
         </div>
@@ -49,9 +49,10 @@ let myHeaders = new Headers();
   </div>
 </template>
 
-<style>
+<style scoped>
 .container-deleteqte {
   width: 50%; 
+  color:black;
   margin: 0 auto; 
   padding: 20px;
   border: 1px solid #ccc;
@@ -92,7 +93,7 @@ let myHeaders = new Headers();
 }
 
 .container-deleteqte button {
-  background-color: #9AC8EB;
+  background-color: #2596be;
   color: #fff;
   border: none;
   border-radius: 5px;

@@ -17,7 +17,7 @@ function AddProduit(nomProduit,quantite,image,url){
     };
     fetch(url,fetchOptions)
     .then((response) => {
-        console.log(nomProduit,qte,photoy)
+        console.log(nomProduit,qte,photo)
       return response.json(); 
     })
     .then((dataJSON) => {
@@ -50,8 +50,9 @@ function AddProduit(nomProduit,quantite,image,url){
 </div>
 </template>
 
-<style>
+<style scoped>
 .container-addproduit {
+  color : black;
   width: 50%; 
   margin: 0 auto; 
   padding: 20px;
@@ -84,8 +85,6 @@ function AddProduit(nomProduit,quantite,image,url){
   align-items: center;
 }
 
-
-
 .container-addproduit input,
 .container-addproduit button {
   padding: 8px;
@@ -93,7 +92,7 @@ function AddProduit(nomProduit,quantite,image,url){
 }
 
 .container-addproduit button {
-  background-color: #9AC8EB;
+  background-color: #2596be;
   color: #fff;
   border: none;
   border-radius: 5px;

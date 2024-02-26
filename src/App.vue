@@ -8,7 +8,7 @@ import FindProduit from './components/FindProduit.vue'
 
 import { onMounted,onUpdated,reactive } from "vue";
 const listeProduits = reactive([]);
-const url = "https://webmmi.iut-tlse3.fr/~pecatte/frigo/public/2/produits";
+const url = "https://webmmi.iut-tlse3.fr/~pecatte/frigo/public/1/produits";
 
 function getProduits(){
     fetch(url)
@@ -35,9 +35,10 @@ onUpdated(() => {getProduits()})
   <div class="nav">
     <FindProduit :listeProduits="listeProduits"/>
   </div>
+  <div class="frigo-image"><img src="https://img.freepik.com/vecteurs-premium/refrigerateur-plat-refrigerateur-vide-ouvert-ferme-frigo-bleu-aliments-sains-eau-rencontres-legumes_80590-7445.jpg?w=1060"></div>
   <div class="container">
     <div class="left">
-      <Produit :listeProduits="listeProduits" :url="url"/>
+      <Produit :listeProduits="listeProduits" :url="url" />
     </div>
     <div class="right">
       <AddProduit :url="url"/>
@@ -49,14 +50,22 @@ onUpdated(() => {getProduits()})
 </div>
 </template>
 
-<style>
+<style scoped>
 .page {
-  background-color: #B6D8F2;
+  background-color: #F0F2F5;
   display: flex;
   flex-direction: column;
   height: 100vh; 
 }
 
+.frigo-image {
+  width: 100%;
+}
+
+.frigo-image img {
+  width: 100%;
+  height: auto;
+}
 .container {
   margin-top: 40px;
   flex: 1; 
@@ -70,11 +79,11 @@ onUpdated(() => {getProduits()})
 }
 
 .left {
-  background-color: #B6D8F2;
+  background-color: #F0F2F5;
 }
 
 .right {
-  background-color: #B6D8F2;
+  background-color: #F0F2F5;
  
 }
 

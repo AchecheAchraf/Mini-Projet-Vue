@@ -5,7 +5,7 @@ defineProps(["listeProduits"]);
 
 const nomProduit = ref('');
 const Produit =ref([]);
-const foundProduit=ref(false)
+const foundProduit=ref(0)
 
 
 
@@ -15,12 +15,12 @@ function FindProduit(nomprod,listeProduits){
             console.log(prod[1])
             Produit.value=prod
             console.log(Produit)
-            foundProduit.value=true
+            foundProduit.value=1
             break
         }
         else{
             Produit.value=[]
-            foundProduit.value=false
+            foundProduit.value=2
             }
     }
 }
@@ -31,7 +31,7 @@ function FindProduit(nomprod,listeProduits){
   <div>
     <div class="navbar">
       <form @submit.prevent="FindProduit(nomProduit,listeProduits)">
-          <div class="text-navbar"><h1>Frigo</h1></div>
+          <div class="text-navbar"><h1 class="project-title">Frigo de Achraf</h1></div>
             <div class="search-container">
               <input type="text" id="nomproduit"  placeholder="Produit" v-model="nomProduit">
               <button type="submit">Rechercher</button>
@@ -41,19 +41,33 @@ function FindProduit(nomprod,listeProduits){
 
   <div>
     <!-- Afficher les noms des produits dans la balise select -->
-    <div v-if="foundProduit" class="found-produit">
+    <div v-if="foundProduit==1" class="found-produit">
       <h3>Produit :</h3>
       Nom: {{ Produit[1] }}        Quantité: {{ Produit[2] }}        <img :src="Produit[3]">
   </div>
-    <div v-else class="found-produit">
+    <div v-else-if="foundProduit==2" class="found-produit">
       Produit n'existe pas
     </div>
-
+    <div v-else >
+      
+    </div>
   </div>
 </div>
 </template>
 
-<style>
+<style scoped>
+
+.text-navbar {
+  text-align: center;
+}
+
+.project-title {
+  font-family: Arial, sans-serif;
+  font-size: 36px;
+  color: white; /* Adjust color as needed */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle text shadow */
+}
+
  img {
   max-width: 70px;
   height: auto;
@@ -61,8 +75,8 @@ function FindProduit(nomprod,listeProduits){
 }
 
 .found-produit {
-  background-color: #B6D8F2;
-  color:white;
+  background-color: #F0F2F5;
+  color:black;
   margin-top: 70px;
   display: flex;
   justify-content: center; 
@@ -76,7 +90,7 @@ body {
 }
 
 .navbar {
-  background-color: #5784BA;
+  background-color: #2596be;
   height: 70px;
   width: 100%;
   position: fixed;

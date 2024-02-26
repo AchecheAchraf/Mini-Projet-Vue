@@ -17,9 +17,9 @@ defineProps(["listeProduits"]);
   </div>
 </template>
 
-<style>
+<style scoped>
 .produit-item {
-  background-color: #9AC8EB;
+  background-color: #FFFFFF;
   border-radius: 10px;
   margin-bottom: 10px; 
   padding: 10px; 
@@ -32,7 +32,7 @@ defineProps(["listeProduits"]);
 }
 
 .produit-info {
-  color: white;
+  color: black;
 }
 
 .produit-image img {
@@ -41,6 +41,7 @@ defineProps(["listeProduits"]);
 }
 
 .produits {
+  color: black;
   margin-top:37px;
   text-align: center; 
 }

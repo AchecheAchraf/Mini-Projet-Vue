@@ -1,6 +1,7 @@
 <script setup>
 defineProps(["listeProduits","url"]);
-
+import { ref } from 'vue';
+const selectedProductIdDelete = ref(null);
 function DeleteProduit(id,url) {
 
 let myHeaders = new Headers();
@@ -27,11 +28,11 @@ let myHeaders = new Headers();
 <div class="container-deleteproduit">
     <!-- Formualire pour supprimer un produit -->
     <h2>Supprimer un produit</h2>
-    <form @submit="DeleteProduit(selectedProductId,url)">
+    <form @submit="DeleteProduit(selectedProductIdDelete,url)">
         <div class="form-group">
             <label for="nomproduit">Nom du produit :</label>
             <!-- Afficher les noms des produits dans la balise select -->
-            <select v-model="selectedProductId" id="nomproduit" class="produit-select">
+            <select v-model="selectedProductIdDelete" id="nomproduit" class="produit-select">
                 <option v-for="produit in listeProduits" :key="produit[0]" :value="produit[0]">{{ produit[1] }}</option>
             </select>
         </div>
@@ -40,8 +41,9 @@ let myHeaders = new Headers();
 </div>
 </template>
 
-<style>
+<style scoped>
 .container-deleteproduit {
+  color:black;
   width: 50%; 
   margin: 0 auto; 
   padding: 20px;
@@ -83,7 +85,7 @@ let myHeaders = new Headers();
 }
 
 .container-deleteproduit button {
-  background-color: #9AC8EB;
+  background-color: #2596be;
   color: #fff;
   border: none;
   border-radius: 5px;
